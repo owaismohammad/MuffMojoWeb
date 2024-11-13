@@ -1,5 +1,6 @@
-# Emoji Typing Extension 🧁
-
+# Muff-Mojo 🧁
+## "Sprinkle Some Fun on Your Chats🍩"
+### Utilize the Website to find the names of your favourite emojis
 **Bring more fun to your chats!** With the Emoji Typing Extension, you can instantly add emojis to your messages by simply typing specific words. Designed to work seamlessly with any social media or chat platform, this extension makes your conversations more expressive and enjoyable!
 
 ---
