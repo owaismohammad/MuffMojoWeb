@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muff-Mojo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1><a href="#search-bar" style="text-decoration: none; outline: none;">Muff-Mojo <span>🧁</span></a></h1>
+        <nav>
+            <a href="#about-me">About</a>
+            <a href="#search-bar">Search</a>
+            <a href="#how-it-works">How It Works?</a>
+            <a href="#premium">Premium</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Sprinkle Some Fun on Your Chats</h2>
+            <p>Summon your favorite emojis while having a chat just by typing their names. Skip the mouse, and forget about the clicks. Just type the name of an emoji, and make it instantly yours to use.</p>
+            <button onclick="document.getElementById('search-bar').scrollIntoView();">Search Emojis</button>
+        </div>
+        <div class="emojis">
+            <img src="emojo.png" alt="Emojis">
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="work-text">
+            <h2>How It Works</h2>
+        </div>
+        <ul>
+            <li class="instruction" data-emoji="😀">All the emojis a word AWAY! 😀 😁 😎 ❤️ 💥 🎉 🥳 🌟 </li>
+            <li class="instruction" data-emoji="🔍">Type the name of the emoji you want, and it’ll appear as a tooltip. </li>
+            <li class="instruction" data-emoji="⚙️">The extension will detect words and show related emojis. </li>
+            <li class="instruction" data-emoji="⬆️">Press the Up Arrow key to select your emoji.</li>
+            <li class="instruction" data-emoji="🗨️">Available for Whatsapp. Stay Tuned for Future Iterations!</li>
+        </ul>
+    </section>
+
+    <!-- Modern Search Bar Section -->
+    <section id="search-bar">
+        <h2>Muff-Mojo 🧁</h2>
+        <div class="search-container">
+            <input type="text" id="emoji-search" placeholder="Try out your emoji..." onkeydown="checkEnter(event)">
+            <button id="search-button" onclick="searchEmoji()">Search</button>
+        </div>
+    </section>
+
+    <!-- Modal for Emoji -->
+    <div id="emoji-modal" style="display: none;" onclick="closeModalOnClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal()">×</span>
+            <div id="emoji-element" style="font-size: 50px;"></div> <!-- Display the emoji here -->
+            <div id="emoji-name" style="font-size: 20px; margin-top: 10px;"></div> <!-- Display the emoji name here -->
+        </div>
+    </div>
+    
+
+    <!-- About Me Section -->
+    <section id="about-me">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="owi.png" alt="Muhammad Owais">
+            </div>
+            <div class="about-description">
+                <h2>About Me</h2>
+                <p>Hey! My name is Mohammad Owais, creator of Muff-Mojo, your go-to extension to access emojis. I am a second-year student of Electronics and Communication engineering. I created this extension to make it easier for people to find the perfect emoji without the hassle of scrolling and spending a crazy amount of time just to find their perfect emoji. Now, your ideal emoji is just a tap away!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="socials">
+                <a href="https://github.com/owaismohammad" target="_blank" aria-label="GitHub">
+                    <img src="github.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/mohammad-owais-627a2626a/" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/owaiszs_/" target="_blank" aria-label="Instagram">
+                    <img src="instagram.png" alt="Instagram">
+                </a>
+            </div>
+            <p>&copy; 2024 Muff-Mojo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Auto Scroll to Search Bar -->
+    <script>
+        window.onload = function() {
+            document.getElementById('search-bar').scrollIntoView({ behavior: 'smooth' });
+        };
+    </script>
+</body>
+</html>
