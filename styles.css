@@ -26,6 +26,8 @@
         font-weight: bold;
         display: flex;
         align-items: center;
+        color:#333
+        
     }
 
     header h1 span {
@@ -47,17 +49,18 @@
     }
 
     .hero-text {
-        max-width: 60%;
+        max-width: 65%;
     }
 
     .hero h2 {
-        font-size: 48px;
-        font-weight: 700;
+        font-size: 80px;
+        font-weight: bold;
         color: #333;
+        
     }
 
     .hero p {
-        font-size: 18px;
+        font-size: 24px;
         margin-top: 20px;
         max-width: 500px;
     }
@@ -78,99 +81,80 @@
     }
 
     .emojis img {
-        width: 300px;
+        width: 450px;
         height: auto;
     }
 
     /* How It Works Section */
-    #how-it-works {
-        padding: 60px 20px;
-        background-color: #f9f9f9;
-        
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 60px 20px;
-    }
-    .work-text{
-        max-width: 60%;
+#how-it-works {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Set to vertical alignment */
+}
 
-    }
-    #how-it-works h2 {
-        font-size: 48px;
-        font-weight: 700;
-        color: #333;
-    }
+.work-text {
+    max-width: 800px; /* Optional: Limit max width for readability */
+    text-align: center;
+}
 
-    #how-it-works ul {
-        /* list-style: none;
-        font-size: 18px;
-        text-align: left;
-        margin: 0 auto;
-        max-width: 600px; */
-        font-size: 18px;
-        margin-top: 20px;
-        max-width: 500px;
-    }
+#how-it-works h2 {
+    font-size: 80px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px; /* Add space below heading */
+}
 
-    .instruction {
-        position: relative;
-        margin-bottom: 15px;
-        padding-left: 20px;
-        color: #6a0dad;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
+#how-it-works ul {
+    font-size: 24px;
+    margin-top: 40px;
+    list-style: none;
+    padding: 0;
+}
 
-    .instruction::before {
-        content: attr(data-emoji);
-        font-size: 24px;
-        position: absolute;
-        left: -25px;
-        transition: transform 0.3s ease, color 0.3s ease;
-    }
+.instruction {
+    position: relative;
+    margin-bottom: 32px;
+    padding-left: 80px; /* Indent for emoji */
+    color: #6a0dad;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-    .instruction:hover {
-        color: #ff4081;
-    }
+.instruction:hover {
+    color: #ff4081;
+    transform: scale(1.05); /* Pop-out effect */
+}
 
-    .instruction:hover::before {
-        transform: scale(1.3) rotate(15deg);
-        color: #ff4081;
-    }
+.instruction::before {
+    content: attr(data-emoji);
+    font-size: 40px;
+    position: absolute;
+    margin-top: -10px;
+    left: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 
-    /* Adding Unique Colors for Each Line */
-    .instruction:nth-child(1) {
-        color: #6a0dad;
-    }
+.instruction:hover::before {
+    transform: scale(1.3) rotate(15deg);
+    color: #ff4081;
+}
 
-    .instruction:nth-child(2) {
-        color: #ff4081;
-    }
+/* Unique Colors for Each Line */
+.instruction:nth-child(1) { color: #6a0dad; }
+.instruction:nth-child(2) { color: #ff4081; }
+.instruction:nth-child(3) { color: #ff9800; }
+.instruction:nth-child(4) { color: #4caf50; }
+.instruction:nth-child(5) { color: #009688; }
 
-    .instruction:nth-child(3) {
-        color: #ff9800;
-    }
-
-    .instruction:nth-child(4) {
-        color: #4caf50;
-    }
-
-    .instruction:nth-child(1):hover {
-        color: #9c27b0;
-    }
-
-    .instruction:nth-child(2):hover {
-        color: #f50057;
-    }
-
-    .instruction:nth-child(3):hover {
-        color: #ffb300;
-    }
-
-    .instruction:nth-child(4):hover {
-        color: #66bb6a;
-    }
+/* Hover color change */
+.instruction:nth-child(1):hover { color: #9c27b0; }
+.instruction:nth-child(2):hover { color: #f50057; }
+.instruction:nth-child(3):hover { color: #ffb300; }
+.instruction:nth-child(4):hover { color: #66bb6a; }
+.instruction:nth-child(5):hover { color: #26a69a; }
     /* About Me Section */
     #about-me {
         background-color: #fff;
