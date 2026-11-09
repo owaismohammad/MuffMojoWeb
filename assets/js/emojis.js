@@ -1,4 +1,5 @@
 // Generated from the extension's keyword list (content5.js). [keyword, emoji, category]
+// Rebuild with: node scripts/generate-emojis.js <path-to-extension>/content5.js
 window.MOJO_EMOJIS = [
   ["hug", "🫂", "Popular"],
   ["tick", "✅", "Popular"],

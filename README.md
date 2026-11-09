@@ -1,47 +1,47 @@
-# Muff-Mojo 🧁
-## "Sprinkle Some Fun on Your Chats🍩"
-### Utilize the Website to find the names of your favourite emojis
-**Bring more fun to your chats!** With the Emoji Typing Extension, you can instantly add emojis to your messages by simply typing specific words. Designed to work seamlessly with any social media or chat platform, this extension makes your conversations more expressive and enjoyable!
+# Muff-Mojo website 🧁
 
----
+The landing page for [Muff-Mojo](https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke), a Chrome extension that turns words into emojis while you type in WhatsApp Web and Instagram. Type `fire`, press <kbd>↑</kbd>, get 🔥.
 
-## Features
+The site has a live demo, a playground that behaves like the extension, and a searchable list of every word it knows.
 
-- **Instant Emoji Suggestions**: Just type words like `smile`, `love`, or `laugh` and an emoji suggestion will appear as a tooltip.
-- **Easy Emoji Insertion**: Quickly insert emojis with a single click or a simple key press – no need for emoji panels!
-- **Diverse Emoji Categories**: From popular and face emojis to food, nature, and even Gen Z emojis – there's something for every mood.
-- **Works Everywhere**: Supports any `contenteditable` text fields, such as those in WhatsApp Web, Twitter, Facebook, and more.
-- **Streamlined User Experience**: A sleek, minimalist tooltip provides suggestions without interrupting your typing.
-***Currently working on Whatsapp Only***
----
+## Project structure
 
-## Emoji Categories
+```
+index.html                 the page
+assets/
+  css/styles.css           all styles
+  js/main.js               demo chat, playground, word list, animations
+  js/emojis.js             word list (generated, see below)
+  img/                     favicon, photo
+  img/emoji-3d/            3D emoji images (Microsoft Fluent Emoji, MIT)
+scripts/
+  generate-emojis.js       rebuilds assets/js/emojis.js from the extension
+```
 
-Explore emojis across a variety of categories for every occasion:
-- **Popular Emojis**: 😊 😂 ❤️ 👍 🦁 🐶 🍎 🍕 🥳
-- **Face Emojis**: 😍 😊 🤔 😱 😴 🤓 🤗 🤩
-- **Hand Emojis**: ✋ 👋 🤞 💪 👏 ✌️ 🖐️
-- **Food Emojis**: 🍕 🍔 🍣 🍎 🍓 🍩 🍿 🍷
-- **Gen Z Emojis**: 💀 🥺 💯 😏 🤡 ✨ 🫠 🧠
-- **Water Emojis**: 💧 🌊 🚿 🏊‍♂️ 🛁 🌧️
-- **Fantasy Emojis**: 👼 🧚 🧛 🧟 🧜‍♀️ 🦄
-- **Animals and Nature**: 🐶 🐱 🦁 🐸 🐼 🌳 🌵 🌸 🌍
+It's plain HTML, CSS and JavaScript with no build step. Animations use [GSAP](https://gsap.com/) from a CDN; if it fails to load, the page still works, just without motion.
 
----
+## Running it locally
 
-## How It Works
+Any static file server works, for example:
 
-1. **Install the Extension**: Download and install the extension to enable emoji suggestions across platforms.
-2. **Start Typing**: Type a keyword (e.g., `love`, `laugh`, `sun`), and a tooltip with an emoji suggestion will appear.
-3. **Insert Emoji**: Click the emoji or press the designated key to insert it instantly into your text.
+```bash
+python -m http.server 5173
+```
 
----
+Then open http://localhost:5173.
 
-## Benefits for Social Media & Chat Apps
+## Updating the word list
 
-This extension works with popular platforms like WhatsApp Web, Twitter, Facebook, and more, making it easy to add expressive emojis without searching through emoji panels. Type, click, and keep chatting – it’s that simple!
+The word list comes from the extension's source, so the site always matches what the extension supports:
 
----
+```bash
+node scripts/generate-emojis.js ../MuffMojo/content5.js
+```
 
-## Installation
-### Download from Chrome Web Store
+## Cache busting
+
+CSS and JS links in `index.html` end in `?v=N`. Bump the number when you change those files so browsers load the new version.
+
+## Credits
+
+Made by [Mohammad Owais](https://github.com/owaismohammad). 3D emoji from [Microsoft Fluent Emoji](https://github.com/microsoft/fluentui-emoji) (MIT).

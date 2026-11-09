@@ -7,12 +7,12 @@
   <meta name="description" content="A small Chrome extension for WhatsApp Web and Instagram. Type a word like fire, press the up arrow, and it turns into 🔥.">
   <meta property="og:title" content="Muff-Mojo 🧁">
   <meta property="og:description" content="Type a word, press ↑, get the emoji. Works on WhatsApp Web and Instagram.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="cup.png" type="image/png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Grandstander:wght@700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="assets/css/styles.css?v=9">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -20,7 +20,7 @@
   <header class="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="#top" aria-label="Muff-Mojo home">
-        <img src="favicon.svg" alt="" width="36" height="36">
+        <img src="assets/img/favicon.svg" alt="" width="36" height="36">
         <span>Muff-<b>Mojo</b></span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
@@ -53,9 +53,9 @@
         <div class="hero__art" aria-hidden="true">
           <svg class="hero__shape" data-speed="0.85" viewBox="0 0 400 360"><path d="M200 18 386 340H14Z" fill="#ffd23f" stroke="#111" stroke-width="4" stroke-linejoin="round"/></svg>
           <svg class="doodle d-star" data-speed="1.25" viewBox="0 0 40 40"><path d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32" stroke="#2ec27e" stroke-width="6" stroke-linecap="round"/></svg>
-          <img class="e3d e-fire" src="img/3d/fire.png" alt="" width="256" height="256" data-speed="1.35" data-tilt="18">
-          <img class="e3d e-love" src="img/3d/hearteyes.png" alt="" width="256" height="256" data-speed="1.15" data-tilt="-14">
-          <img class="e3d e-party" src="img/3d/party.png" alt="" width="256" height="256" data-speed="1.5" data-tilt="24">
+          <img class="e3d e-fire" src="assets/img/emoji-3d/fire.png" alt="" width="256" height="256" data-speed="1.35" data-tilt="18">
+          <img class="e3d e-love" src="assets/img/emoji-3d/hearteyes.png" alt="" width="256" height="256" data-speed="1.15" data-tilt="-14">
+          <img class="e3d e-party" src="assets/img/emoji-3d/party.png" alt="" width="256" height="256" data-speed="1.5" data-tilt="24">
           <svg class="doodle d-zig" data-speed="1.2" viewBox="0 0 60 24"><path d="M3 18 12 6l9 12 9-12 9 12 9-12 9 12" fill="none" stroke="#e63946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <div class="phone">
             <div class="phone__bar">
@@ -187,13 +187,13 @@
     <section class="section section--cream" id="about">
       <div class="wrap about">
         <figure class="about__photo card">
-          <img class="e3d e-cupcake" src="img/3d/cupcake.png" alt="" width="256" height="256" data-speed="1.3" aria-hidden="true">
-          <img class="e3d e-donut" src="img/3d/doughnut.png" alt="" width="256" height="256" data-speed="1.15" aria-hidden="true">
-          <img src="owi.png" alt="Mohammad Owais" width="540" height="540" loading="lazy">
+          <img class="e3d e-cupcake" src="assets/img/emoji-3d/cupcake.png" alt="" width="256" height="256" data-speed="1.3" aria-hidden="true">
+          <img class="e3d e-donut" src="assets/img/emoji-3d/doughnut.png" alt="" width="256" height="256" data-speed="1.15" aria-hidden="true">
+          <img src="assets/img/owais.png" alt="Mohammad Owais" width="540" height="540" loading="lazy">
         </figure>
         <div class="about__copy">
           <p class="small">The person behind it</p>
-          <h2>Hey, I'm Owais <img class="inline-3d wave-hand" src="img/3d/wavehand.png" alt="👋" width="256" height="256"></h2>
+          <h2>Hey, I'm Owais <img class="inline-3d wave-hand" src="assets/img/emoji-3d/wavehand.png" alt="👋" width="256" height="256"></h2>
           <p>I study Electronics &amp; Communication Engineering. I kept losing my train of thought every time I opened the emoji panel to find one specific face, so I wrote a tiny script that does it from the keyboard. That script turned into Muff-Mojo.</p>
           <p>It's a side project, so it isn't perfect. If something breaks or there's a word you want added, tell me.</p>
           <div class="socials">
@@ -234,9 +234,9 @@
         </div>
       </div>
       <div class="night__cheers" aria-hidden="true">
-        <img class="cheer cheer--l" src="img/3d/party.png" alt="" width="256" height="256">
+        <img class="cheer cheer--l" src="assets/img/emoji-3d/party.png" alt="" width="256" height="256">
         <div class="planet"></div>
-        <img class="cheer cheer--r" src="img/3d/cupcake.png" alt="" width="256" height="256">
+        <img class="cheer cheer--r" src="assets/img/emoji-3d/cupcake.png" alt="" width="256" height="256">
       </div>
     </section>
   </main>
@@ -255,7 +255,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="emojis.js?v=8" defer></script>
-  <script src="script.js?v=8" defer></script>
+  <script src="assets/js/emojis.js?v=9" defer></script>
+  <script src="assets/js/main.js?v=9" defer></script>
 </body>
 </html>
