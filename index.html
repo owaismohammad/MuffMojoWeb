@@ -1,117 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muff-Mojo</title>
-    <link rel="icon" href="cup.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto|Outlier:wght@400&display=swap" rel="stylesheet">
-    <style>
-        
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muff-Mojo 🧁 emojis by typing words</title>
+  <meta name="description" content="A small Chrome extension for WhatsApp Web and Instagram. Type a word like fire, press the up arrow, and it turns into 🔥.">
+  <meta property="og:title" content="Muff-Mojo 🧁">
+  <meta property="og:description" content="Type a word, press ↑, get the emoji. Works on WhatsApp Web and Instagram.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="cup.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <!-- Header -->
-    <header>
-        <h1><a href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target= "_blank" style="text-decoration: none; outline: none; color: #333;">Muff-Mojo <span>🧁</span></a></h1>
-        <nav>
-            <a href="#about-me">About</a>
-            <a href="#search-bar">Search</a>
-            <a href="#how-it-works">How It Works?</a>
-            <a href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target="_blank">Download</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Sprinkle Some Fun on Your Chats</h2>
-            <p>Summon your favorite emojis while having a chat just by typing their names. Skip the mouse, and forget about the clicks. Just type the name of an emoji, and make it instantly yours to use.</p>
-            <button onclick="document.getElementById('search-bar').scrollIntoView();">Search Emojis</button>
-        </div>
-        <div class="emojis">
-            <img src="emojo.png" alt="Emojis">
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works">
-        <div class="work-text">
-            <h2>How It Works?</h2>
-        </div>
-        <ul>
-            <li class="instruction" data-emoji="⚙️">The extension will detect words and show related emojis. </li>
-            <li class="instruction" data-emoji="🔍">Type the name of the emoji you want, and it’ll appear as a tooltip. </li>
-            <li class="instruction" data-emoji="⬆️">Press the Up Arrow key to select your emoji.</li>
-            <li class="instruction" data-emoji="😀">All the emojis a word AWAY! 😀 😁 😎 ❤️ 💥 🎉 🥳 🌟 </li> 
-            <li class="instruction" data-emoji="🗨️">Available for your favourite socials, <p>be it Instagram or Whatsapp.We've got it all covered.</p></li>
-            <li class="instruction" data-emoji="🔮">Stay tuned for future updates </li> 
-
-        </ul>
-    </section>
-
-    <!-- Modern Search Bar Section -->
-    <section id="search-bar">
-        <h2>Muff-Mojo🧁</h2>
-        <div class="search-container">
-            <input type="text" id="emoji-search" placeholder="Try out your emoji..." onkeydown="checkEnter(event)">
-            <button id="search-button" onclick="searchEmoji()">Search</button>
-        </div>
-    </section>
-
-    <!-- Modal for Emoji -->
-    <div id="emoji-modal" style="display: none;" onclick="closeModalOnClick(event)">
-        <div class="modal-content" onclick="event.stopPropagation();">
-            <span class="close" onclick="closeModal()">×</span>
-            <div id="emoji-element" style="font-size: 50px;"></div> <!-- Display the emoji here -->
-            <div id="emoji-name" style="font-size: 20px; margin-top: 10px;"></div> <!-- Display the emoji name here -->
-        </div>
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Muff-Mojo home">
+        <img src="favicon.svg" alt="" width="36" height="36">
+        <span>Muff-Mojo</span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#playground">Try it</a>
+        <a href="#words">Word list</a>
+        <a href="#about">About</a>
+      </nav>
+      <a class="btn btn--yellow btn--sm nav__cta" href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target="_blank" rel="noopener">Get it free ↗</a>
+      <button class="burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    
+  </header>
 
-    <!-- About Me Section -->
-    <section id="about-me">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="owi.png" alt="Muhammad Owais">
-            </div>
-            <div class="about-description">
-                <h2>About Me</h2>
-                <p>Hey! My name is Mohammad Owais, creator of Muff-Mojo, your go-to extension to access emojis. I am a second-year student of Electronics and Communication engineering. I created this extension to make it easier for people to find the perfect emoji without the hassle of scrolling and spending a crazy amount of time just to find their perfect emoji. Now, your ideal emoji is just a tap away!</p>
-            </div>
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <h1>Emojis, without the emoji keyboard.</h1>
+          <p class="lede">Muff-Mojo is a little Chrome extension I made. Type a word like <code>fire</code> in WhatsApp or Instagram, press <kbd>↑</kbd>, and it turns into 🔥.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--yellow" href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target="_blank" rel="noopener">Add to Chrome ↗</a>
+            <a class="btn btn--outline" href="#playground">Try it first ↓</a>
+          </div>
         </div>
+
+        <div class="hero__art" aria-hidden="true">
+          <svg class="hero__shape" data-speed="0.85" viewBox="0 0 400 360"><path d="M200 18 386 340H14Z" fill="#ffd23f" stroke="#111" stroke-width="4" stroke-linejoin="round"/></svg>
+          <svg class="doodle d-star" data-speed="1.25" viewBox="0 0 40 40"><path d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32" stroke="#2ec27e" stroke-width="6" stroke-linecap="round"/></svg>
+          <img class="e3d e-fire" src="img/3d/fire.png" alt="" width="256" height="256" data-speed="1.35" data-tilt="18">
+          <img class="e3d e-love" src="img/3d/hearteyes.png" alt="" width="256" height="256" data-speed="1.15" data-tilt="-14">
+          <img class="e3d e-party" src="img/3d/party.png" alt="" width="256" height="256" data-speed="1.5" data-tilt="24">
+          <svg class="doodle d-zig" data-speed="1.2" viewBox="0 0 60 24"><path d="M3 18 12 6l9 12 9-12 9 12 9-12 9 12" fill="none" stroke="#e63946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="phone">
+            <div class="phone__bar">
+              <div class="avatar">A</div>
+              <div><strong>Ayesha</strong><small>online</small></div>
+            </div>
+            <div class="phone__chat" id="demoChat">
+              <div class="bubble in">are you coming tonight?</div>
+            </div>
+            <div class="phone__composer">
+              <div class="composer"><span id="demoText"></span><span class="caret"></span>
+                <div class="tip" id="demoTip"><span id="demoTipEmoji"></span><kbd>↑</kbd></div>
+              </div>
+              <div class="send">➤</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="socials">
-                <a href="https://github.com/owaismohammad" target="_blank" aria-label="GitHub">
-                    <img src="github.png" alt="GitHub">
-                </a>
-                <a href="https://www.linkedin.com/in/mohammad-owais-627a2626a/" target="_blank" aria-label="LinkedIn">
-                    <img src="linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://www.instagram.com/owaiszs_/" target="_blank" aria-label="Instagram">
-                    <img src="instagram.png" alt="Instagram">
-                </a>
-            </div>
-            <p>&copy; 2024 Muff-Mojo. All rights reserved.</p>
+    <!-- RIBBONS -->
+    <div class="ribbons" aria-hidden="true">
+      <div class="ribbon ribbon--pink"><div class="ribbon__track" id="ribbonB"></div></div>
+      <div class="ribbon ribbon--yellow"><div class="ribbon__track" id="ribbonA"></div></div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+      <div class="wrap">
+        <div class="head">
+          <p class="small">273 words so far, sorted into</p>
+          <h2>Pick a vibe</h2>
         </div>
-    </footer>
+        <div class="cats-row" id="catCards"></div>
+        <div class="center"><a class="btn btn--outline btn--sm" href="#words">See every word →</a></div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- HOW IT WORKS -->
+    <section class="section section--cream" id="how">
+      <svg class="doodle d-ring" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="30" fill="none" stroke="#2a6df4" stroke-width="10"/></svg>
+      <div class="wrap">
+        <div class="head head--left">
+          <p class="small">It's honestly three steps</p>
+          <h2>How it works</h2>
+        </div>
+        <div class="how">
+          <article class="card how__card">
+            <div class="how__pic pic--pink"><span class="fake-input">see you <mark>soon</mark>|</span></div>
+            <h3>1. Type like normal</h3>
+            <p>Open WhatsApp Web or Instagram DMs and just write your message.</p>
+          </article>
+          <article class="card how__card">
+            <div class="how__pic pic--blue"><span class="fake-tip">🎉</span><span class="fake-input">see you soon <mark>party</mark>|</span></div>
+            <h3>2. Watch for the bubble</h3>
+            <p>If the last word you typed has an emoji, it shows up right above the cursor.</p>
+          </article>
+          <article class="card how__card">
+            <div class="how__pic pic--green"><kbd class="big-key">↑</kbd><span class="fake-input">see you soon 🎉|</span></div>
+            <h3>3. Hit the up arrow</h3>
+            <p>The word becomes the emoji. Didn't want it? Just keep typing and ignore it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Auto Scroll to Search Bar -->
-    <script>
-        window.onload = function() {
-            document.getElementById('search-bar').scrollIntoView({ behavior: 'smooth' });
-        };
-    </script>
+    <!-- PLAYGROUND -->
+    <section class="section" id="playground">
+      <div class="wrap play">
+        <div class="play__copy">
+          <p class="small">No install needed for this bit</p>
+          <h2>Try it right here</h2>
+          <p>This box behaves the same way the extension does. Type something that ends in a word from the list, then press <kbd>↑</kbd> (or tap the bubble on your phone). <kbd>Enter</kbd> sends it.</p>
+          <div class="try">
+            <span>Some to try:</span>
+            <button class="tag" data-try="pizza">pizza</button>
+            <button class="tag" data-try="skull">skull</button>
+            <button class="tag" data-try="hug">hug</button>
+            <button class="tag" data-try="crown">crown</button>
+            <button class="tag" data-try="sparkles">sparkles</button>
+          </div>
+        </div>
+        <div class="play__box card">
+          <div class="play__chat" id="playChat" aria-live="polite">
+            <div class="bubble in">go on, type something 👇</div>
+          </div>
+          <form class="play__composer" id="playForm" autocomplete="off">
+            <div class="play__field">
+              <div class="tip tip--live" id="playTip"><span id="playTipEmoji"></span><kbd>↑</kbd></div>
+              <span class="measure" id="playMeasure" aria-hidden="true"></span>
+              <input id="playInput" type="text" placeholder="try: good morning sun" aria-label="Message" spellcheck="false">
+            </div>
+            <button class="send send--btn" type="submit" aria-label="Send">➤</button>
+          </form>
+          <p class="play__status" id="playStatus" aria-live="polite">Waiting for a word…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORD LIST -->
+    <section class="section section--line" id="words">
+      <svg class="doodle d-star2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32" stroke="#ff6fa5" stroke-width="6" stroke-linecap="round"/></svg>
+      <div class="wrap">
+        <div class="head">
+          <p class="small">Click a card to copy the word</p>
+          <h2>The full word list</h2>
+        </div>
+
+        <div class="words__bar">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="dictSearch" type="search" placeholder="Search a word, or paste an emoji" aria-label="Search words">
+          </label>
+          <div class="filters" id="dictCats" aria-label="Filter by category"></div>
+        </div>
+
+        <p class="count" id="dictCount" aria-live="polite"></p>
+        <div class="grid" id="dictGrid"></div>
+        <div class="empty" id="dictEmpty" hidden>
+          <p class="empty__emoji">🥲</p>
+          <p>Not in the list yet. If you want it added, <a href="https://www.instagram.com/owaiszs_/" target="_blank" rel="noopener">DM me on Instagram</a>.</p>
+          <button class="btn btn--outline btn--sm" id="dictReset">Clear search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + FAQ -->
+    <section class="section section--cream" id="about">
+      <div class="wrap about">
+        <figure class="about__photo card">
+          <img class="e3d e-cupcake" src="img/3d/cupcake.png" alt="" width="256" height="256" data-speed="1.3" aria-hidden="true">
+          <img class="e3d e-donut" src="img/3d/doughnut.png" alt="" width="256" height="256" data-speed="1.15" aria-hidden="true">
+          <img src="owi.png" alt="Mohammad Owais" width="540" height="540" loading="lazy">
+          <figcaption>me, probably thinking about emojis</figcaption>
+        </figure>
+        <div class="about__copy">
+          <p class="small">The person behind it</p>
+          <h2>Hey, I'm Owais <img class="inline-3d wave-hand" src="img/3d/wavehand.png" alt="👋" width="256" height="256"></h2>
+          <p>I study Electronics &amp; Communication Engineering. I kept losing my train of thought every time I opened the emoji panel to find one specific face, so I wrote a tiny script that does it from the keyboard. That script turned into Muff-Mojo.</p>
+          <p>It's a side project, so it isn't perfect. If something breaks or there's a word you want added, tell me.</p>
+          <div class="socials">
+            <a class="btn btn--outline btn--sm" href="https://github.com/owaismohammad" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn--outline btn--sm" href="https://www.linkedin.com/in/mohammad-owais-627a2626a/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn--outline btn--sm" href="https://www.instagram.com/owaiszs_/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+
+          <div class="faq">
+            <details>
+              <summary>Does it cost anything?</summary>
+              <p>No. It's free on the Chrome Web Store.</p>
+            </details>
+            <details>
+              <summary>Does it send my messages anywhere?</summary>
+              <p>No. The word list lives inside the extension and everything happens in your browser tab.</p>
+            </details>
+            <details>
+              <summary>The bubble isn't showing up</summary>
+              <p>Click inside the message box once and start typing again. Also, words have to match exactly, so it's <code>thumbs_up</code>, not <code>thumbsup</code>.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <a class="brand brand--light" href="#top"><img src="favicon.svg" alt="" width="30" height="30"><span>Muff-Mojo</span></a>
+        <p>Sprinkle some fun on your chats 🍩</p>
+      </div>
+      <a class="btn btn--yellow" href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target="_blank" rel="noopener">Add to Chrome ↗</a>
+    </div>
+    <div class="wrap footer__base">
+      <span>© <span id="year">2026</span> Mohammad Owais · 3D emoji by <a href="https://github.com/microsoft/fluentui-emoji" target="_blank" rel="noopener">Microsoft Fluent</a> (MIT)</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="emojis.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
