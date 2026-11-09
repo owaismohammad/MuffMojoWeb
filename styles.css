@@ -254,6 +254,8 @@ body::after {
 .cat__pic { position: relative; overflow: visible; }
 .cat__pic img { width: 112px; margin-top: -40px; filter: drop-shadow(3px 5px 0 rgba(17, 17, 17, .8)); transition: transform .25s cubic-bezier(.3, 1.7, .5, 1); }
 .cat:hover .cat__pic img { transform: translateY(-8px) rotate(-8deg) scale(1.06); }
+.cat__emoji { display: inline-block; line-height: 1; transition: transform .25s cubic-bezier(.3, 1.7, .5, 1); }
+.cat:hover .cat__emoji { transform: translateY(-6px) rotate(-8deg) scale(1.08); }
 
 /* crossed ribbons */
 .ribbons { position: relative; height: 190px; overflow: hidden; border-bottom: var(--b); background: #fff; }

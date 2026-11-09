@@ -234,9 +234,9 @@
   });
 
   /* ---------- Category cards ---------- */
-  const catIcon = { Popular: "fire", Faces: "joy", Hands: "thumbs", Food: "pizza", "Gen Z": "skull", Water: "wave", Fantasy: "unicorn", Animals: "dog", Nature: "blossom" };
+  const catIcon = { Popular: "🔥", Faces: "😂", Hands: "👍", Food: "🍕", "Gen Z": "💀", Water: "🌊", Fantasy: "🦄", Animals: "🐶", Nature: "🌸" };
   $("#catCards").innerHTML = catNames.map((c, i) =>
-    `<a class="cat card" href="#words" data-cat="${c}"><div class="cat__pic bg-${i % 6}"><img src="img/3d/${catIcon[c] || "sparkles"}.png" alt="" width="256" height="256" loading="lazy"></div><strong>${c}</strong><small>${counts[c]} words</small></a>`
+    `<a class="cat card" href="#words" data-cat="${c}"><div class="cat__pic bg-${i % 6}"><span class="cat__emoji">${catIcon[c] || "✨"}</span></div><strong>${c}</strong><small>${counts[c]} words</small></a>`
   ).join("");
 
   /* ---------- Ribbons ---------- */
@@ -246,6 +246,7 @@
   };
   $("#ribbonA").innerHTML = ribbonHTML(["fire", "hug", "skull", "pizza", "crown", "sparkles", "love", "party", "coffee", "unicorn"]);
   $("#ribbonB").innerHTML = ribbonHTML(["melting", "salute", "pleading", "brain", "ghost", "rainbow", "popcorn", "cool", "pray", "eyes"]);
+
   $("#catCards").addEventListener("click", e => {
     const a = e.target.closest("[data-cat]");
     if (a) { search.value = ""; setCat(a.dataset.cat); }
@@ -258,7 +259,6 @@
   if (!gsap || !ST || reduceMotion) return;
   gsap.registerPlugin(ST);
 
-  // hero entrance
   // hero entrance: text stays visible, only the artwork pops in
   const intro = gsap.timeline({ defaults: { ease: "back.out(1.6)" } });
   intro
@@ -318,6 +318,7 @@
       const v = gsap.utils.clamp(-6, 6, self.getVelocity() / 300);
       gsap.to(".ribbon--yellow", { rotate: -3 - v * .3, duration: .4, overwrite: "auto" });
       gsap.to(".ribbon--pink", { rotate: 3 + v * .3, duration: .4, overwrite: "auto" });
+
     },
   });
 })();
