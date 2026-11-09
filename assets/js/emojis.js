@@ -1,277 +1,138 @@
-// Generated from the extension's keyword list (content5.js). [keyword, emoji, category]
-// Rebuild with: node scripts/generate-emojis.js <path-to-extension>/content5.js
-window.MOJO_EMOJIS = [
-  ["hug", "🫂", "Popular"],
-  ["tick", "✅", "Popular"],
-  ["correct", "✅", "Popular"],
-  ["wrong", "❌", "Popular"],
-  ["incorrect", "❌", "Popular"],
-  ["smile", "😀", "Popular"],
-  ["laugh", "😂", "Popular"],
-  ["heart", "❤️", "Popular"],
-  ["wink", "😉", "Popular"],
-  ["thumbs", "👍", "Popular"],
-  ["star", "⭐", "Popular"],
-  ["fire", "🔥", "Popular"],
-  ["party", "🎉", "Popular"],
-  ["kiss", "😘", "Popular"],
-  ["sun", "☀️", "Popular"],
-  ["moon", "🌙", "Popular"],
-  ["cloud", "☁️", "Popular"],
-  ["rainbow", "🌈", "Popular"],
-  ["cat", "🐱", "Popular"],
-  ["dog", "🐶", "Popular"],
-  ["elephant", "🐘", "Popular"],
-  ["lion", "🦁", "Popular"],
-  ["flower", "🌸", "Popular"],
-  ["tree", "🌳", "Popular"],
-  ["car", "🚗", "Popular"],
-  ["heart_eyes", "😍", "Faces"],
-  ["blush", "😊", "Faces"],
-  ["smirk", "😏", "Faces"],
-  ["relieved", "😌", "Faces"],
-  ["thinking", "🤔", "Faces"],
-  ["sweat_smile", "😅", "Faces"],
-  ["upside_down", "🙃", "Faces"],
-  ["joy", "🤣", "Faces"],
-  ["crying", "😢", "Faces"],
-  ["sleepy", "😴", "Faces"],
-  ["angry", "😡", "Faces"],
-  ["shocked", "😱", "Faces"],
-  ["scream", "😱", "Faces"],
-  ["astonished", "😲", "Faces"],
-  ["sunglasses", "😎", "Faces"],
-  ["nerd", "🤓", "Faces"],
-  ["facepalm", "🤦", "Faces"],
-  ["shrug", "🤷", "Faces"],
-  ["hugging", "🤗", "Faces"],
-  ["party_face", "🥳", "Faces"],
-  ["happy", "😊", "Faces"],
-  ["grin", "😁", "Faces"],
-  ["joyful", "😁", "Faces"],
-  ["annoyed", "😑", "Faces"],
-  ["playful", "😉", "Faces"],
-  ["shy", "😊", "Faces"],
-  ["love", "😍", "Faces"],
-  ["teasing", "😏", "Faces"],
-  ["relaxed", "😌", "Faces"],
-  ["sweatSmile", "😅", "Faces"],
-  ["pondering", "🤔", "Faces"],
-  ["asleep", "😴", "Faces"],
-  ["sad_teary", "😢", "Faces"],
-  ["sad", "😔", "Faces"],
-  ["cool", "😎", "Faces"],
-  ["mad", "😡", "Faces"],
-  ["dizzy", "😵", "Faces"],
-  ["stunned", "😵", "Faces"],
-  ["celebration", "🥳", "Faces"],
-  ["caring", "🤗", "Faces"],
-  ["quiet", "🤫", "Faces"],
-  ["embarrassed", "😳", "Faces"],
-  ["upset", "😞", "Faces"],
-  ["affection", "😘", "Faces"],
-  ["tongueOut", "😜", "Faces"],
-  ["silly", "😜", "Faces"],
-  ["sick", "🤢", "Faces"],
-  ["nauseated", "🤢", "Faces"],
-  ["studious", "🤓", "Faces"],
-  ["disbelief", "🤦", "Faces"],
-  ["sneezing", "🤧", "Faces"],
-  ["clown", "🤡", "Faces"],
-  ["dead", "💀", "Faces"],
-  ["pleading", "🥺", "Faces"],
-  ["begging", "🥺", "Faces"],
-  ["melting", "🫠", "Faces"],
-  ["overwhelmed", "🫠", "Faces"],
-  ["salute", "🫡", "Faces"],
-  ["respect", "🫡", "Faces"],
-  ["knife", "🔪", "Faces"],
-  ["sword", "🗡️", "Faces"],
-  ["knight", "🤺", "Faces"],
-  ["thumbs_up", "👍", "Hands"],
-  ["thumbs_down", "👎", "Hands"],
-  ["clap", "👏", "Hands"],
-  ["pray", "🙏", "Hands"],
-  ["ok", "👌", "Hands"],
-  ["peace", "✌️", "Hands"],
-  ["fist", "✊", "Hands"],
-  ["raised_hand", "✋", "Hands"],
-  ["fingers_crossed", "🤞", "Hands"],
-  ["wave", "👋", "Hands"],
-  ["call_me", "🤙", "Hands"],
-  ["writing_hand", "✍️", "Hands"],
-  ["muscle", "💪", "Hands"],
-  ["handshake", "🤝", "Hands"],
-  ["point_up", "☝️", "Hands"],
-  ["point_down", "👇", "Hands"],
-  ["point_left", "👈", "Hands"],
-  ["point_right", "👉", "Hands"],
-  ["victory", "✌️", "Hands"],
-  ["raised_back_hand", "🤚", "Hands"],
-  ["apple", "🍎", "Food"],
-  ["banana", "🍌", "Food"],
-  ["grapes", "🍇", "Food"],
-  ["watermelon", "🍉", "Food"],
-  ["orange", "🍊", "Food"],
-  ["pineapple", "🍍", "Food"],
-  ["strawberry", "🍓", "Food"],
-  ["cherries", "🍒", "Food"],
-  ["peach", "🍑", "Food"],
-  ["lemon", "🍋", "Food"],
-  ["melon", "🍈", "Food"],
-  ["pizza", "🍕", "Food"],
-  ["hamburger", "🍔", "Food"],
-  ["hotdog", "🌭", "Food"],
-  ["fries", "🍟", "Food"],
-  ["spaghetti", "🍝", "Food"],
-  ["taco", "🌮", "Food"],
-  ["burrito", "🌯", "Food"],
-  ["popcorn", "🍿", "Food"],
-  ["cake", "🍰", "Food"],
-  ["icecream", "🍦", "Food"],
-  ["doughnut", "🍩", "Food"],
-  ["cookie", "🍪", "Food"],
-  ["coffee", "☕", "Food"],
-  ["tea", "🍵", "Food"],
-  ["wine_glass", "🍷", "Food"],
-  ["beer", "🍺", "Food"],
-  ["cocktail", "🍸", "Food"],
-  ["sushi", "🍣", "Food"],
-  ["ramen", "🍜", "Food"],
-  ["skull", "💀", "Gen Z"],
-  ["cry", "😭", "Gen Z"],
-  ["pleads", "🥺", "Gen Z"],
-  ["sparkles", "✨", "Gen Z"],
-  ["eyes", "👀", "Gen Z"],
-  ["hundred", "💯", "Gen Z"],
-  ["nails", "💅", "Gen Z"],
-  ["melting_face", "🫠", "Gen Z"],
-  ["smirking_cat", "😼", "Gen Z"],
-  ["drooling_face", "🤤", "Gen Z"],
-  ["flushed_face", "😳", "Gen Z"],
-  ["cold_face", "🥶", "Gen Z"],
-  ["explosion", "💥", "Gen Z"],
-  ["money_mouth", "🤑", "Gen Z"],
-  ["cowboy", "🤠", "Gen Z"],
-  ["robot", "🤖", "Gen Z"],
-  ["fairy", "🧚", "Gen Z"],
-  ["alien", "👽", "Gen Z"],
-  ["mushroom", "🍄", "Gen Z"],
-  ["leaf", "🍃", "Gen Z"],
-  ["crystal_ball", "🔮", "Gen Z"],
-  ["crown", "👑", "Gen Z"],
-  ["black_heart", "🖤", "Gen Z"],
-  ["brain", "🧠", "Gen Z"],
-  ["butterfly", "🦋", "Gen Z"],
-  ["lips", "👄", "Gen Z"],
-  ["cactus", "🌵", "Gen Z"],
-  ["water", "💧", "Water"],
-  ["droplet", "💦", "Water"],
-  ["splash", "💦", "Water"],
-  ["rain", "🌧️", "Water"],
-  ["drizzle", "🌧️", "Water"],
-  ["downpour", "🌧️", "Water"],
-  ["umbrella", "☔", "Water"],
-  ["parasol", "☔", "Water"],
-  ["ocean", "🌊", "Water"],
-  ["sea", "🌊", "Water"],
-  ["sweat", "😅", "Water"],
-  ["perspiration", "😅", "Water"],
-  ["shower", "🚿", "Water"],
-  ["bath", "🛁", "Water"],
-  ["swimming", "🏊", "Water"],
-  ["snorkeling", "🤿", "Water"],
-  ["dive", "🤿", "Water"],
-  ["faucet", "🚰", "Water"],
-  ["drink", "🥤", "Water"],
-  ["glass", "🥤", "Water"],
-  ["pool", "🏊‍♂️", "Water"],
-  ["lake", "🌊", "Water"],
-  ["river", "🌊", "Water"],
-  ["fish", "🐟", "Water"],
-  ["aquatic", "🐟", "Water"],
-  ["whale", "🐳", "Water"],
-  ["orca", "🐳", "Water"],
-  ["dolphin", "🐬", "Water"],
-  ["surfing", "🏄", "Water"],
-  ["canoe", "🛶", "Water"],
-  ["boat", "⛵", "Water"],
-  ["sail", "⛵", "Water"],
-  ["person", "👤", "Water"],
-  ["people", "👥", "Water"],
-  ["baby", "👶", "Water"],
-  ["child", "🧒", "Water"],
-  ["boy", "👦", "Water"],
-  ["girl", "👧", "Water"],
-  ["man", "👨", "Water"],
-  ["woman", "👩", "Water"],
-  ["elderly", "👴", "Water"],
-  ["oldWoman", "👵", "Water"],
-  ["family", "👪", "Water"],
-  ["couple", "👫", "Water"],
-  ["thumbsUp", "👍", "Water"],
-  ["thumbsDown", "👎", "Water"],
-  ["raisedHands", "🙌", "Water"],
-  ["flex", "💪", "Water"],
-  ["writing", "✍️", "Water"],
-  ["gay", "🏳️‍🌈", "Water"],
-  ["angel", "👼", "Fantasy"],
-  ["vampire", "🧛", "Fantasy"],
-  ["zombie", "🧟", "Fantasy"],
-  ["mermaid", "🧜‍♀️", "Fantasy"],
-  ["merman", "🧜‍♂️", "Fantasy"],
-  ["elf", "🧝", "Fantasy"],
-  ["genie", "🧞", "Fantasy"],
-  ["ghost", "👻", "Fantasy"],
-  ["wizard", "🧙", "Fantasy"],
-  ["witch", "🧙‍♀️", "Fantasy"],
-  ["magic", "🪄", "Fantasy"],
-  ["dragon", "🐉", "Fantasy"],
-  ["unicorn", "🦄", "Fantasy"],
-  ["puppy", "🐶", "Animals"],
-  ["kitten", "🐱", "Animals"],
-  ["mouse", "🐭", "Animals"],
-  ["hamster", "🐹", "Animals"],
-  ["rabbit", "🐰", "Animals"],
-  ["bunny", "🐰", "Animals"],
-  ["fox", "🦊", "Animals"],
-  ["bear", "🐻", "Animals"],
-  ["panda", "🐼", "Animals"],
-  ["koala", "🐨", "Animals"],
-  ["tiger", "🐯", "Animals"],
-  ["cow", "🐮", "Animals"],
-  ["pig", "🐷", "Animals"],
-  ["frog", "🐸", "Animals"],
-  ["monkey", "🐒", "Animals"],
-  ["chicken", "🐔", "Animals"],
-  ["penguin", "🐧", "Animals"],
-  ["bird", "🐦", "Animals"],
-  ["eagle", "🦅", "Animals"],
-  ["duck", "🦆", "Animals"],
-  ["owl", "🦉", "Animals"],
-  ["bee", "🐝", "Animals"],
-  ["bug", "🐛", "Animals"],
-  ["snail", "🐌", "Animals"],
-  ["crab", "🦀", "Animals"],
-  ["lobster", "🦞", "Animals"],
-  ["shrimp", "🦐", "Animals"],
-  ["squid", "🦑", "Animals"],
-  ["shark", "🦈", "Animals"],
-  ["octopus", "🐙", "Animals"],
-  ["turtle", "🐢", "Animals"],
-  ["snake", "🐍", "Animals"],
-  ["forest", "🌲", "Nature"],
-  ["palm", "🌴", "Nature"],
-  ["rose", "🌹", "Nature"],
-  ["sunflower", "🌻", "Nature"],
-  ["blossom", "🌼", "Nature"],
-  ["seedling", "🌱", "Nature"],
-  ["herb", "🌿", "Nature"],
-  ["shamrock", "☘️", "Nature"],
-  ["mapleLeaf", "🍁", "Nature"],
-  ["fallenLeaf", "🍂", "Nature"],
-  ["earth", "🌍", "Nature"],
-  ["lightning", "⚡", "Nature"],
-  ["tornado", "🌪️", "Nature"],
-  ["volcano", "🌋", "Nature"]
-];
+/*
+ * Muff-Mojo emoji dictionary — shared by the content script and the popup.
+ *
+ * The data (every Unicode emoji, ~1,900) lives in emoji-data.js, generated by
+ * tools/build-emoji-data.mjs. Hand-picked trigger words (tools/curated.json) are merged in
+ * there and those emojis rank first, so "love" still suggests 😍 before 💌.
+ *
+ * Trigger words are case-insensitive; underscores and camelCase are normalised,
+ * so "thumbs_up", "thumbsUp" and "thumbsup" all work.
+ */
+(function (root) {
+  const DATA = root.MuffMojoEmojiData;
+  if (!DATA) throw new Error('Muff-Mojo: load emoji-data.js before emojis.js');
+
+  /** "thumbsUp" / "thumbs_up" / "Thumbs-Up" -> "thumbsup" */
+  function normalize(word) {
+    return String(word).toLowerCase().replace(/[_\-\s]/g, '');
+  }
+
+  const CATEGORIES = DATA.groups.map(([id, label, icon]) => ({ id, label, icon, items: [], entries: [] }));
+  const ALL = [];          // [{ emoji, name, keywords, category, curated, rank, skin }]
+  const INDEX = new Map(); // normalized keyword -> [entry, ...] (exact matches, best first)
+
+  DATA.rows.split('\n').forEach((line, i) => {
+    const [emoji, group, words, flags = ''] = line.split('\t');
+    const keywords = words.split(' ');
+    const cat = CATEGORIES[Number(group)];
+    const flagList = flags.split(' ');
+    const curatedFlag = flagList.find((f) => f[0] === 'c');
+    const pickedFlag = flagList.find((f) => f[0] === 'k');
+    const nameFlag = flagList.find((f) => f[0] === 'n');
+    const entry = {
+      emoji,
+      name: keywords[0],
+      keywords,
+      norm: keywords.map(normalize),
+      category: cat.id,
+      curated: !!curatedFlag,
+      // hand-picked first (in their own order), then everything else in Unicode order
+      rank: curatedFlag ? Number(curatedFlag.slice(1)) : 10000 + i,
+      picked: pickedFlag ? Number(pickedFlag.slice(1)) : 0, // keywords[0..picked) are hand-picked
+      skin: flagList.includes('s')
+    };
+    // Words that may pop the picker during normal typing: hand-picked ones + a one-word name.
+    // Everything else (generic tags like "like", "time") is only used by ":search" and the popup.
+    const namePos = nameFlag ? Number(nameFlag.slice(1)) : -1;
+    entry.isTrigger = (pos) => pos < entry.picked || pos === namePos;
+    ALL.push(entry);
+    cat.entries.push(entry);
+    cat.items.push([emoji, ...keywords]);
+    entry.norm.forEach((key, pos) => {
+      if (!INDEX.has(key)) INDEX.set(key, []);
+      const list = INDEX.get(key);
+      if (!list.some((x) => x.entry === entry)) list.push({ entry, pos });
+    });
+  });
+
+  // Best match first: emojis hand-picked for this exact word (in hand-picked order), then
+  // emojis where the word is the name or an early alias (more specific than a generic tag),
+  // then Unicode order.
+  const handPicked = (x) => x.pos < x.entry.picked;
+  const TRIGGERS = new Map(); // same as INDEX, limited to typing-trigger words
+  for (const [key, list] of INDEX) {
+    list.sort((a, b) =>
+      (handPicked(a) === handPicked(b) ? 0 : handPicked(a) ? -1 : 1) ||
+      (handPicked(a) ? a.entry.rank - b.entry.rank : 0) ||
+      Math.min(a.pos, 3) - Math.min(b.pos, 3) ||
+      a.entry.rank - b.entry.rank);
+    INDEX.set(key, list.map((x) => x.entry));
+    const triggers = list.filter((x) => x.entry.isTrigger(x.pos)).map((x) => x.entry);
+    if (triggers.length) TRIGGERS.set(key, triggers);
+  }
+
+  /**
+   * Exact keyword match. With { triggersOnly } (plain typing) only hand-picked words and
+   * one-word names count, so everyday words like "like" or "time" don't pop the picker.
+   */
+  function exact(word, { triggersOnly = false } = {}) {
+    return (triggersOnly ? TRIGGERS : INDEX).get(normalize(word)) || [];
+  }
+
+  /** Prefix / substring search, ranked (used for ":query", typing suggestions and the popup). */
+  function search(query, limit = 8, { prefixOnly = false, triggersOnly = false } = {}) {
+    const q = normalize(query);
+    if (!q) return [];
+    const scored = [];
+    for (const entry of ALL) {
+      let best = Infinity;
+      entry.norm.forEach((k, pos) => {
+        if (triggersOnly && !entry.isTrigger(pos)) return;
+        // while typing, partial words only match hand-picked words ("hap" → happy) —
+        // official names must be typed in full, or "the" would suggest 🌡️ thermometer
+        if (triggersOnly && k !== q && pos >= entry.picked) return;
+        let s;
+        if (k === q) s = 0;
+        else if (k.startsWith(q)) s = 1 + (k.length - q.length) / 100;
+        else if (!prefixOnly && k.includes(q)) s = 3;
+        else return;
+        if (pos > 0) s += 0.5;                // prefer the display name
+        if (pos > 3) s += 0.25;               // generic tags rank below names/aliases
+        if (pos < entry.picked) s -= 0.7;     // a word we hand-picked for this emoji wins
+        if (s < best) best = s;
+      });
+      if (best === Infinity) continue;
+      if (entry.curated) best -= 0.1;         // hand-picked emojis win remaining ties
+      scored.push([best, entry.rank, entry]);
+    }
+    scored.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    return scored.slice(0, limit).map((x) => x[2]);
+  }
+
+  /* ── skin tones ── */
+  const TONES = ['', '\u{1F3FB}', '\u{1F3FC}', '\u{1F3FD}', '\u{1F3FE}', '\u{1F3FF}'];
+  const MODIFIER_BASE = /\p{Emoji_Modifier_Base}/u;
+  const HANDSHAKE = '\u{1F91D}';
+
+  /** The emoji in the chosen skin tone (0 = default yellow, 1–5 = light → dark). */
+  function withTone(entry, tone) {
+    const mod = TONES[tone] || '';
+    if (!mod || !entry.skin) return entry.emoji;
+    const cps = [...entry.emoji];
+    const bases = cps.filter((c) => MODIFIER_BASE.test(c));
+    let out = '';
+    for (let i = 0; i < cps.length; i++) {
+      const c = cps[i];
+      // In "people holding hands" style sequences the 🤝 in the middle stays untoned.
+      if (MODIFIER_BASE.test(c) && !(bases.length > 1 && c === HANDSHAKE)) {
+        out += c + mod;
+        if (cps[i + 1] === '️') i++; // the tone replaces the variation selector
+      } else {
+        out += c;
+      }
+    }
+    return out;
+  }
+
+  root.MuffMojoEmojis = Object.freeze({ CATEGORIES, ALL, exact, search, normalize, withTone, TONES });
+})(typeof globalThis !== 'undefined' ? globalThis : window);

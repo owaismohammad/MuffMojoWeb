@@ -188,6 +188,8 @@ h2 { font-size: clamp(30px, 3.8vw, 44px); }
 .word__emoji { font-size: 38px; line-height: 1; }
 .word__name { font: 500 13px var(--mono); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .word.copied { background: #d4f5e3; }
+.word__aka { font: 400 11px var(--mono); color: var(--muted); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: -4px; }
+.filters .tag { white-space: nowrap; }
 .empty { text-align: center; padding: 30px 20px; display: grid; justify-items: center; gap: 14px; color: var(--ink-2); }
 .empty[hidden] { display: none; }
 .empty__emoji { font-size: 50px; }

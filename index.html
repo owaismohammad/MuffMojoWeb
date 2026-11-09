@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Grandstander:wght@700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -87,7 +87,7 @@
     <section class="section" id="categories">
       <div class="wrap">
         <div class="head">
-          <p class="small">273 words so far, sorted into</p>
+          <p class="small"><span data-emoji-total>1,914</span> emoji so far, sorted into</p>
           <h2>Pick a vibe</h2>
         </div>
         <div class="cats-row" id="catCards"></div>
@@ -161,7 +161,7 @@
       <svg class="doodle d-star2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32" stroke="#ff6fa5" stroke-width="6" stroke-linecap="round"/></svg>
       <div class="wrap">
         <div class="head">
-          <p class="small">Click a card to copy the word</p>
+          <p class="small"><span data-word-total>6,639</span> words to type. Click a card to copy one</p>
           <h2>Every single word</h2>
         </div>
 
@@ -175,6 +175,7 @@
 
         <p class="count" id="dictCount" aria-live="polite"></p>
         <div class="grid" id="dictGrid"></div>
+        <div class="center"><button class="btn btn--yellow btn--sm" id="dictMore" hidden>Show more</button></div>
         <div class="empty" id="dictEmpty" hidden>
           <p class="empty__emoji">🥲</p>
           <p>Not in the list yet. If you want it added, <a href="https://www.instagram.com/owaiszs_/" target="_blank" rel="noopener">DM me on Instagram</a>.</p>
@@ -213,7 +214,7 @@
             </details>
             <details>
               <summary>The bubble isn't showing up</summary>
-              <p>Click inside the message box once and start typing again. Also, words have to match exactly, so it's <code>thumbs_up</code>, not <code>thumbsup</code>.</p>
+              <p>Click inside the message box once and start typing again. Capitals, <code>_</code> and <code>-</code> don't matter, so <code>Thumbs_Up</code> and <code>thumbsup</code> both work.</p>
             </details>
           </div>
         </div>
@@ -255,7 +256,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="assets/js/emojis.js?v=9" defer></script>
-  <script src="assets/js/main.js?v=9" defer></script>
+  <script src="assets/js/emoji-data.js?v=10" defer></script>
+  <script src="assets/js/emojis.js?v=10" defer></script>
+  <script src="assets/js/main.js?v=10" defer></script>
 </body>
 </html>
