@@ -62,7 +62,8 @@ mark { background: var(--pink-soft); color: var(--ink); padding: 0 3px; border-r
 /* Nav */
 .nav { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: var(--b); }
 .nav__inner { display: flex; align-items: center; gap: 28px; height: 68px; }
-.brand { display: inline-flex; align-items: center; gap: 8px; font: 400 22px/1 var(--display); text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: 8px; font: 700 23px/1 "Grandstander", var(--font); text-decoration: none; }
+.brand b { font-weight: inherit; color: var(--pink); }
 .brand img { transition: transform .2s; }
 .brand:hover img { transform: rotate(-14deg); }
 .nav__links { display: flex; gap: 26px; margin-left: auto; }
@@ -240,7 +241,7 @@ body::after {
 .e3d { position: absolute; z-index: 4; pointer-events: none; filter: drop-shadow(4px 6px 0 rgba(17, 17, 17, .85)); will-change: transform; }
 .e-fire { width: 104px; top: 90px; left: 4%; }
 .e-love { width: 88px; top: 42%; right: -1%; }
-.e-party { width: 92px; bottom: -6px; right: 30%; }
+.e-party { width: 92px; bottom: 6%; left: 6%; }
 .hero__copy, .hero__art .phone { position: relative; z-index: 3; }
 .inline-3d { width: 1.05em; height: auto; display: inline-block; vertical-align: -.12em; }
 .wave-hand { transform-origin: 70% 80%; animation: wave 2.4s ease-in-out infinite; }
@@ -322,3 +323,66 @@ body::after {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   html { scroll-behavior: auto; }
 }
+
+/* =========================================================
+   Ponpon-inspired additions (branch: design/ponpon)
+   ========================================================= */
+
+/* pill-shaped nav: active link gets an outlined pill */
+.nav__links a { padding: 6px 14px; border: 2px solid transparent; border-radius: 999px; }
+.nav__links a:hover, .nav__links a.is-active { border-color: var(--ink); border-bottom-color: var(--ink); color: var(--ink); }
+
+
+/* night finale */
+.night { position: relative; overflow: hidden; background: #121018; color: #fff; padding: clamp(80px, 12vw, 140px) 0 0; text-align: center; }
+.night__inner { position: relative; z-index: 2; }
+.night h2 { font-size: clamp(40px, 7vw, 88px); line-height: 1; color: #ffe6dc; }
+.night p { max-width: 34em; margin: 22px auto 0; color: #c9c3d6; font-size: 17px; }
+.pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+.pill {
+  display: inline-block; padding: 10px 20px; border: 2px solid #fff; border-radius: 999px;
+  color: #fff; text-decoration: none; font-weight: 600; transition: background .15s, color .15s, transform .15s;
+}
+.pill:hover { background: #fff; color: var(--ink); transform: rotate(-3deg); }
+.pill--yellow { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.pill--yellow:hover { background: #fff; border-color: #fff; }
+.stars { position: absolute; inset: 0; }
+.star { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; animation: twinkle 3s ease-in-out infinite; }
+@keyframes twinkle { 50% { opacity: .2; } }
+.night__cheers { position: relative; height: 260px; margin-top: 50px; display: flex; justify-content: center; align-items: flex-end; }
+.planet {
+  position: absolute; bottom: -340px; left: 50%; translate: -50%; width: 760px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 20%, #8fb8ff, #3a5bd6 55%, #23317a); box-shadow: 0 0 80px 10px rgba(110, 150, 255, .35);
+}
+.cheer { position: relative; z-index: 2; width: 170px; filter: drop-shadow(4px 6px 0 rgba(0, 0, 0, .6)); }
+.cheer--l { transform: rotate(-12deg); margin-right: 60px; animation: clink-l 2.4s ease-in-out infinite; }
+.cheer--r { transform: rotate(10deg); animation: clink-r 2.4s ease-in-out infinite; }
+@keyframes clink-l { 50% { transform: rotate(4deg) translate(18px, -8px); } }
+@keyframes clink-r { 50% { transform: rotate(-6deg) translate(-18px, -8px); } }
+
+/* footer now sits under the night sky */
+.footer { padding: 0 0 24px; background: #121018; }
+.footer__base { border-top: 1px solid #2a2633; }
+
+/* section dots on the right edge */
+.dots { position: fixed; right: 18px; top: 50%; translate: 0 -50%; z-index: 60; display: grid; gap: 12px; }
+.dots a { position: relative; display: block; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--ink); transition: transform .15s, background .15s; }
+.dots a.is-active { background: var(--ink); transform: scale(1.25); }
+.dots a span {
+  position: absolute; right: 22px; top: 50%; translate: 0 -50%; white-space: nowrap;
+  font: 700 18px var(--hand); background: var(--ink); color: #fff; padding: 2px 10px; border-radius: 999px;
+  opacity: 0; pointer-events: none; transition: opacity .15s;
+}
+.dots a:hover span, .dots a:focus-visible span { opacity: 1; }
+
+@media (max-width: 760px) {
+  .nav__links a { border-radius: 8px; }
+  .dots { display: none; }
+}
+@media (max-width: 520px) {
+  .cheer { width: 120px; }
+  .night__cheers { height: 200px; }
+  .planet { width: 520px; height: 360px; bottom: -260px; }
+}
+.about__photo .e-donut { bottom: auto; top: 90px; }
+.dots a { box-shadow: 0 0 0 2px #fff; }

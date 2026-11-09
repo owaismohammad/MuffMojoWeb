@@ -11,8 +11,8 @@
   <link rel="alternate icon" href="cup.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Grandstander:wght@700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -21,7 +21,7 @@
     <div class="wrap nav__inner">
       <a class="brand" href="#top" aria-label="Muff-Mojo home">
         <img src="favicon.svg" alt="" width="36" height="36">
-        <span>Muff-Mojo</span>
+        <span>Muff-<b>Mojo</b></span>
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="#how">How it works</a>
@@ -59,8 +59,8 @@
           <svg class="doodle d-zig" data-speed="1.2" viewBox="0 0 60 24"><path d="M3 18 12 6l9 12 9-12 9 12 9-12 9 12" fill="none" stroke="#e63946" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <div class="phone">
             <div class="phone__bar">
-              <div class="avatar">A</div>
-              <div><strong>Ayesha</strong><small>online</small></div>
+              <div class="avatar">G</div>
+              <div><strong>Gurrt</strong><small>online</small></div>
             </div>
             <div class="phone__chat" id="demoChat">
               <div class="bubble in">are you coming tonight?</div>
@@ -81,6 +81,7 @@
       <div class="ribbon ribbon--pink"><div class="ribbon__track" id="ribbonB"></div></div>
       <div class="ribbon ribbon--yellow"><div class="ribbon__track" id="ribbonA"></div></div>
     </div>
+
 
     <!-- CATEGORIES -->
     <section class="section" id="categories">
@@ -127,7 +128,7 @@
       <div class="wrap play">
         <div class="play__copy">
           <p class="small">No install needed for this bit</p>
-          <h2>Try it right here</h2>
+          <h2>Go on, try it here</h2>
           <p>This box behaves the same way the extension does. Type something that ends in a word from the list, then press <kbd>↑</kbd> (or tap the bubble on your phone). <kbd>Enter</kbd> sends it.</p>
           <div class="try">
             <span>Some to try:</span>
@@ -161,7 +162,7 @@
       <div class="wrap">
         <div class="head">
           <p class="small">Click a card to copy the word</p>
-          <h2>The full word list</h2>
+          <h2>Every single word</h2>
         </div>
 
         <div class="words__bar">
@@ -189,7 +190,6 @@
           <img class="e3d e-cupcake" src="img/3d/cupcake.png" alt="" width="256" height="256" data-speed="1.3" aria-hidden="true">
           <img class="e3d e-donut" src="img/3d/doughnut.png" alt="" width="256" height="256" data-speed="1.15" aria-hidden="true">
           <img src="owi.png" alt="Mohammad Owais" width="540" height="540" loading="lazy">
-          <figcaption>me, probably thinking about emojis</figcaption>
         </figure>
         <div class="about__copy">
           <p class="small">The person behind it</p>
@@ -219,16 +219,32 @@
         </div>
       </div>
     </section>
+
+    <!-- NIGHT FINALE -->
+    <section class="night" id="hello">
+      <div class="stars" id="stars" aria-hidden="true"></div>
+      <div class="wrap night__inner">
+        <h2>see you in the chats!</h2>
+        <p>If Muff-Mojo makes your messages a little more fun, that's all I wanted. Tell a friend, or tell me what word to add next.</p>
+        <div class="pills">
+          <a class="pill pill--yellow" href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target="_blank" rel="noopener">♥ add to chrome ♥</a>
+          <a class="pill" href="https://www.instagram.com/owaiszs_/" target="_blank" rel="noopener">instagram</a>
+          <a class="pill" href="https://github.com/owaismohammad" target="_blank" rel="noopener">github</a>
+          <a class="pill" href="https://www.linkedin.com/in/mohammad-owais-627a2626a/" target="_blank" rel="noopener">linkedin</a>
+        </div>
+      </div>
+      <div class="night__cheers" aria-hidden="true">
+        <img class="cheer cheer--l" src="img/3d/party.png" alt="" width="256" height="256">
+        <div class="planet"></div>
+        <img class="cheer cheer--r" src="img/3d/cupcake.png" alt="" width="256" height="256">
+      </div>
+    </section>
   </main>
 
+  <!-- section dots -->
+  <nav class="dots" id="dots" aria-label="Sections"></nav>
+
   <footer class="footer">
-    <div class="wrap footer__inner">
-      <div>
-        <a class="brand brand--light" href="#top"><img src="favicon.svg" alt="" width="30" height="30"><span>Muff-Mojo</span></a>
-        <p>Sprinkle some fun on your chats 🍩</p>
-      </div>
-      <a class="btn btn--yellow" href="https://chromewebstore.google.com/detail/muff-mojo-%F0%9F%A7%81/pbngdkapkjlkimhjhbkdcfppegcknjke" target="_blank" rel="noopener">Add to Chrome ↗</a>
-    </div>
     <div class="wrap footer__base">
       <span>© <span id="year">2026</span> Mohammad Owais · 3D emoji by <a href="https://github.com/microsoft/fluentui-emoji" target="_blank" rel="noopener">Microsoft Fluent</a> (MIT)</span>
       <a href="#top">Back to top ↑</a>
@@ -239,7 +255,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="emojis.js?v=4" defer></script>
-  <script src="script.js?v=4" defer></script>
+  <script src="emojis.js?v=8" defer></script>
+  <script src="script.js?v=8" defer></script>
 </body>
 </html>

@@ -214,6 +214,8 @@
       `<button class="word" data-word="${w}" title="Copy ${w}"><span class="word__emoji">${e}</span><span class="word__name">${w}</span></button>`
     ).join("");
     emptyEl.hidden = rows.length > 0;
+    // the grid's height changed, so scroll animations further down need new positions
+    if (window.ScrollTrigger) { clearTimeout(renderGrid.t); renderGrid.t = setTimeout(() => window.ScrollTrigger.refresh(), 150); }
     countEl.textContent = rows.length
       ? `Showing ${rows.length} word${rows.length === 1 ? "" : "s"}${activeCat !== "All" ? ` in ${activeCat}` : ""}`
       : "";
@@ -254,10 +256,41 @@
 
   setCat("All");
 
+  /* ---------- Night sky stars ---------- */
+  const stars = $("#stars");
+  if (stars) {
+    stars.innerHTML = Array.from({ length: 70 }, () => {
+      const s = (Math.random() * 2 + 1).toFixed(1);
+      return `<i class="star" style="left:${(Math.random() * 100).toFixed(2)}%;top:${(Math.random() * 75).toFixed(2)}%;width:${s}px;height:${s}px;animation-delay:${(-Math.random() * 3).toFixed(2)}s"></i>`;
+    }).join("");
+  }
+
+  /* ---------- Section dots ---------- */
+  const dotSections = [["top", "hi"], ["categories", "vibes"], ["how", "how"], ["playground", "try it"], ["words", "every word"], ["about", "me"], ["hello", "bye!"]]
+    .filter(([id]) => document.getElementById(id));
+  const dotsEl = $("#dots");
+  dotsEl.innerHTML = dotSections.map(([id, label]) => `<a href="#${id}" aria-label="${label}"><span>${label}</span></a>`).join("");
+  const dotMap = new Map(dotSections.map(([id], i) => [id, dotsEl.children[i]]));
+  const dotSpy = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    dotMap.forEach(a => a.classList.remove("is-active"));
+    dotMap.get(en.target.id)?.classList.add("is-active");
+  }), { rootMargin: "-50% 0px -50% 0px" });
+  dotMap.forEach((_, id) => dotSpy.observe(document.getElementById(id)));
+
+
   /* ---------- Motion (GSAP). If it fails to load, the page just stays still. ---------- */
   const gsap = window.gsap, ST = window.ScrollTrigger;
-  if (!gsap || !ST || reduceMotion) return;
+  if (!gsap || !ST || reduceMotion) {
+    return;
+  }
   gsap.registerPlugin(ST);
+  // web fonts change line heights; recalculate trigger positions once they're in
+  document.fonts?.ready.then(() => ST.refresh());
+
+
+  // night finale: emojis rise up from behind the planet
+  gsap.from(".night__cheers", { y: 180, duration: 1, ease: "back.out(1.3)", scrollTrigger: { trigger: ".night", start: "top 70%", once: true } });
 
   // hero entrance: text stays visible, only the artwork pops in
   const intro = gsap.timeline({ defaults: { ease: "back.out(1.6)" } });
