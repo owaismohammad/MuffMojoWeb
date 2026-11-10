@@ -20,6 +20,7 @@
 }
 * { box-sizing: border-box; margin: 0; }
 html, body { background: #fff; }
+html:has(#icon:target), html:has(#icon:target) body { background: transparent; }
 body { font: 500 22px/1.4 var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; }
 .slide { position: relative; overflow: hidden; display: none; background: var(--cream); }
 .slide:target { display: block; }
@@ -96,6 +97,11 @@ kbd { display: inline-grid; place-items: center; min-width: 1.7em; height: 1.6em
 
 /* small promo tile */
 #small { width: 440px; height: 280px; background: var(--yellow); }
+/* store icon 128x128: 96x96 artwork + 16px transparent padding (Chrome Web Store guideline) */
+#icon { width: 128px; height: 128px; background: transparent; }
+#icon .tile { position: absolute; left: 16px; top: 16px; width: 91px; height: 91px; border: 3px solid var(--ink); border-radius: 22px;
+  background: var(--yellow); box-shadow: 5px 5px 0 var(--ink); display: grid; place-items: center; }
+#icon .tile img { width: 66px; margin-top: -2px; }
 /* marquee */
 #marquee { width: 1400px; height: 560px; }
 </style>
@@ -181,6 +187,9 @@ kbd { display: inline-grid; place-items: center; min-width: 1.7em; height: 1.6em
     <span class="tag g" style="font-size:16px;padding:8px 11px;border-width:2.5px">party → <span class="e">🎉</span></span>
   </div>
 </section>
+
+<!-- Store icon 128x128 (transparent around the tile) -->
+<section class="slide" id="icon"><div class="tile"><img src="../assets/img/favicon.svg" alt=""></div></section>
 
 <!-- Marquee 1400x560 -->
 <section class="slide dots" id="marquee">

@@ -22,7 +22,9 @@ SHOTS = {
     "screenshot-5-features": ("shot5", 1280, 800),
     "small-promo-440x280": ("small", 440, 280),
     "marquee-promo-1400x560": ("marquee", 1400, 560),
+    "store-icon-128": ("icon", 128, 128),  # keeps transparency, like the extension's own icons
 }
+TRANSPARENT = {"icon"}
 BROWSERS = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
@@ -50,10 +52,12 @@ def main():
             subprocess.run([
                 browser(), "--headless=new", "--disable-gpu", "--hide-scrollbars",
                 "--force-device-scale-factor=1", f"--user-data-dir={profile}",
+                *(["--default-background-color=00000000"] if anchor in TRANSPARENT else []),
                 "--allow-file-access-from-files", "--virtual-time-budget=15000",
                 f"--window-size={w},{h}", f"--screenshot={raw}", f"{page}#{anchor}",
             ], check=True, capture_output=True)
-            img = Image.open(raw).convert("RGB")  # drop alpha: the store wants 24-bit
+            # screenshots and promo tiles must be 24-bit (no alpha); the icon keeps its transparent padding
+            img = Image.open(raw).convert("RGBA" if anchor in TRANSPARENT else "RGB")
             if img.size != (w, h):
                 img = img.crop((0, 0, w, h))
             dest = OUT / f"{name}.png"
