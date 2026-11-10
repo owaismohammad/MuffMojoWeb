@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muff-Mojo store images</title>
+<!-- Chrome Web Store images. Open store.html#shot1 … #shot5, #small, #marquee.
+     Rendered to PNG by store/render.py. Picker suggestions are real: they come from
+     the extension's own dictionary (../assets/js/emoji-data.js + emojis.js). -->
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Grandstander:wght@700&family=Outfit:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@500&family=Libre+Franklin:wght@600;800&family=Noto+Color+Emoji&display=block" rel="stylesheet">
+<style>
+:root {
+  --cream: #fff6cf; --ink: #111; --muted: #6b6b6b;
+  --yellow: #ffd23f; --pink: #ff6fa5; --pink-soft: #ffe1ec; --red: #e63946; --green: #2ec27e; --blue: #2a6df4;
+  --b: 3px solid var(--ink);
+  --font: "Outfit", system-ui, sans-serif;
+  --display: "Bagel Fat One", "Outfit", sans-serif;
+  --hand: "Caveat", cursive;
+  --mono: "DM Mono", Consolas, monospace;
+  --emoji: "Noto Color Emoji", "Segoe UI Emoji", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { background: #fff; }
+body { font: 500 22px/1.4 var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.slide { position: relative; overflow: hidden; display: none; background: var(--cream); }
+.slide:target { display: block; }
+.dots { background-color: var(--cream); background-image: radial-gradient(rgba(17,17,17,.14) 1.6px, transparent 1.9px); background-size: 26px 26px; }
+.e { font-family: var(--emoji); font-weight: 400; line-height: 1; }
+
+/* type */
+.logo { display: flex; align-items: center; gap: 12px; font: 700 34px/1 "Grandstander", var(--font); }
+.logo img { width: 52px; }
+.logo b { color: var(--pink); font-weight: 700; }
+h1, h2 { font: 400 76px/1.02 var(--display); letter-spacing: -.5px; }
+h1 .pink, h2 .pink { color: var(--pink); -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill; }
+.label { font: 700 36px/1 var(--hand); color: var(--red); transform: rotate(-2deg); display: inline-block; }
+.lede { font-size: 26px; color: #333; max-width: 470px; }
+kbd { display: inline-grid; place-items: center; min-width: 1.7em; height: 1.6em; padding: 0 .4em; font: 500 .82em/1 var(--mono);
+      background: #fff; border: var(--b); border-radius: 9px; box-shadow: 0 4px 0 var(--ink); vertical-align: .05em; }
+.tags { display: flex; flex-wrap: wrap; gap: 12px; }
+.tag { font: 500 22px/1 var(--mono); padding: 10px 16px; background: #fff; border: var(--b); border-radius: 999px; box-shadow: 3px 3px 0 var(--ink); white-space: nowrap; }
+.tag .e { font-size: 24px; vertical-align: -3px; }
+.tag.y { background: var(--yellow); } .tag.p { background: var(--pink-soft); } .tag.g { background: #d4f5e3; } .tag.b { background: #cfe3ff; }
+.card { background: #fff; border: var(--b); border-radius: 18px; box-shadow: 8px 8px 0 var(--ink); }
+.sticker { position: absolute; filter: drop-shadow(4px 6px 0 rgba(17,17,17,.85)); }
+
+/* chat window (generic, not any real app's UI) */
+.chat { width: 600px; border-radius: 22px; overflow: visible; position: absolute; }
+.chat__top { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-bottom: var(--b); background: var(--yellow); border-radius: 19px 19px 0 0; }
+.chat__ava { width: 46px; height: 46px; border-radius: 50%; border: var(--b); background: var(--pink-soft); display: grid; place-items: center; font-size: 24px; }
+.chat__who strong { display: block; font: 700 22px/1.1 var(--font); }
+.chat__who small { font-size: 16px; color: #444; }
+.chat__body { padding: 22px 20px 150px; display: grid; gap: 12px; align-content: start; background: #fff; }
+.bubble { max-width: 78%; padding: 11px 16px; border: var(--b); border-radius: 18px; font-size: 21px; line-height: 1.3; }
+.bubble.in { background: #fff; justify-self: start; border-bottom-left-radius: 4px; }
+.bubble.out { background: var(--pink-soft); justify-self: end; border-bottom-right-radius: 4px; }
+.bubble .e { font-size: 1.15em; vertical-align: -2px; }
+.chat__compose { display: flex; gap: 12px; align-items: center; padding: 14px 18px 18px; background: #fff; border-radius: 0 0 19px 19px; }
+.field { position: relative; flex: 1; border: var(--b); border-radius: 999px; padding: 12px 20px; font-size: 22px; background: #fff; white-space: nowrap; }
+.field mark { background: var(--pink-soft); border-radius: 4px; padding: 0 2px; }
+.caret { display: inline-block; width: 3px; height: 1.05em; background: var(--ink); vertical-align: -3px; margin-left: 1px; }
+.send { width: 54px; height: 54px; border-radius: 50%; border: var(--b); background: var(--green); display: grid; place-items: center; font-size: 22px; box-shadow: 3px 3px 0 var(--ink); }
+
+/* the real v3 picker look (content.js), drawn at 1.5x */
+.picker { position: absolute; z-index: 3; display: flex; flex-direction: column; padding: 9px; min-width: 270px;
+  font: 600 18px/1.3 "Libre Franklin", sans-serif; color: var(--pfg); background: var(--pbg);
+  border: 2.5px solid var(--pfg); border-radius: 24px; box-shadow: 6px 6px 0 var(--ink);
+  --pbg: #feece3; --pfg: #171717; --pmuted: rgba(23,23,23,.55); --psel: #ef8db8; --pkbd: rgba(23,23,23,.08); }
+.picker.dark { --pbg: #171717; --pfg: #feece3; --pmuted: rgba(254,236,227,.6); --pkbd: rgba(254,236,227,.14); box-shadow: 6px 6px 0 var(--pink); }
+.picker .row { display: flex; gap: 3px; }
+.picker .opt { width: 57px; height: 57px; border-radius: 15px; display: grid; place-items: center; font: 33px/1 var(--emoji); }
+.picker .opt.sel { background: var(--psel); box-shadow: inset 0 0 0 2.5px var(--pfg); }
+.picker .foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 9px 6px 3px; margin-top: 6px; border-top: 1.5px solid var(--pfg); }
+.picker .name { color: var(--pbg); background: var(--pfg); padding: 3px 13px 4px; border-radius: 99px; font-weight: 800; transform: rotate(-2deg); white-space: nowrap; }
+.picker .keys { display: flex; gap: 9px; color: var(--pmuted); white-space: nowrap; font-size: 17px; }
+.picker .keys i { font: 600 15px/1 system-ui, sans-serif; font-style: normal; background: var(--pkbd); color: var(--pfg); border-radius: 99px; padding: 4px 9px; margin-right: 4px; }
+
+/* ---------- shot 1: hero ---------- */
+#shot1, #shot2, #shot3, #shot4, #shot5 { width: 1280px; height: 800px; }
+.copy { position: absolute; left: 72px; top: 0; bottom: 0; width: 520px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+.blob { position: absolute; border: var(--b); border-radius: 50%; }
+
+/* shot 4 categories */
+.cats { position: absolute; right: 64px; top: 136px; width: 640px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cat { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #fff; border: var(--b); border-radius: 14px; box-shadow: 4px 4px 0 var(--ink); }
+.cat .e { font-size: 40px; width: 62px; height: 62px; display: grid; place-items: center; border: var(--b); border-radius: 10px; }
+.cat strong { display: block; font: 700 22px/1.1 var(--font); }
+.cat small { font: 500 17px var(--mono); color: var(--muted); }
+.bg-0 { background: #ffd8e6; } .bg-1 { background: #cfe3ff; } .bg-2 { background: #d4f5e3; } .bg-3 { background: #fff0b3; } .bg-4 { background: #e7dcff; } .bg-5 { background: #ffe0cc; }
+
+/* shot 5 features */
+.feats { position: absolute; left: 72px; right: 72px; top: 272px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.feat { padding: 26px 24px; display: grid; gap: 12px; align-content: start; min-height: 330px; }
+.feat .big { font-size: 64px; }
+.feat h3 { font: 400 32px/1.05 var(--display); }
+.feat p { font-size: 20px; color: #333; line-height: 1.35; }
+
+/* small promo tile */
+#small { width: 440px; height: 280px; background: var(--yellow); }
+/* marquee */
+#marquee { width: 1400px; height: 560px; }
+</style>
+</head>
+<body>
+
+<!-- 1. Hero -->
+<section class="slide dots" id="shot1">
+  <div class="blob" style="width:620px;height:620px;right:-40px;top:90px;background:var(--pink)"></div>
+  <div class="copy">
+    <div class="logo"><img src="../assets/img/favicon.svg" alt=""><span>Muff-<b>Mojo</b></span></div>
+    <h1>Type a word.<br><span class="pink">Get the emoji.</span></h1>
+    <p class="lede">Type <b>party</b> in your chat and Muff-Mojo offers 🎉 right above the cursor. Press <kbd>Tab</kbd> and it's in.</p>
+    <span class="label">for WhatsApp Web &amp; Instagram ✦</span>
+  </div>
+  <div class="chat card" style="left:620px;top:110px" data-chat='{"title":"bestie","ava":"🧁","msgs":[["in","are you coming tonight??"],["out","obviously, it&apos;s gonna be 🔥"],["in","yesss see you there"]],"typed":"see you at the ","word":"party","picker":{"left":150,"bottom":104}}'></div>
+  <img class="sticker" src="../assets/img/emoji-3d/party.png" style="width:110px;left:1140px;top:40px;transform:rotate(12deg)" alt="">
+  <img class="sticker" src="../assets/img/emoji-3d/fire.png" style="width:92px;left:556px;top:660px;transform:rotate(-14deg)" alt="">
+</section>
+
+<!-- 2. Choose with arrows -->
+<section class="slide dots" id="shot2">
+  <div class="blob" style="width:560px;height:560px;right:20px;top:150px;background:var(--blue)"></div>
+  <div class="copy">
+    <span class="label">more than one match?</span>
+    <h2>Pick the one<br>you <span class="pink">mean</span></h2>
+    <p class="lede">Every word can have a few emojis. Move with <kbd>↑</kbd> <kbd>↓</kbd>, drop it in with <kbd>Tab</kbd>, or just click it. <kbd>Esc</kbd> hides it.</p>
+    <div class="tags"><span class="tag p">love</span><span class="tag y">happy</span><span class="tag g">cool</span><span class="tag b">eyes</span></div>
+  </div>
+  <div class="chat card" style="left:620px;top:110px" data-chat='{"title":"mum","ava":"🌸","msgs":[["in","made your favourite dinner"],["out","you are the best 🥹"],["in","come home soon"]],"typed":"I ","word":"love","rest":" you","sel":2,"picker":{"left":60,"bottom":104}}'></div>
+  <img class="sticker" src="../assets/img/emoji-3d/hearteyes.png" style="width:118px;left:1130px;top:36px;transform:rotate(10deg)" alt="">
+</section>
+
+<!-- 3. ":" search -->
+<section class="slide dots" id="shot3">
+  <div class="blob" style="width:580px;height:580px;right:10px;top:140px;background:var(--green)"></div>
+  <div class="copy">
+    <span class="label">can't remember the word?</span>
+    <h2>Search with<br>a <span class="pink">colon</span></h2>
+    <p class="lede">Type <b>:</b> and part of a name, like <b>:cake</b>, to search all <b data-n="emoji">1,914</b> emoji. <kbd>Enter</kbd> or <kbd>Tab</kbd> picks it.</p>
+    <div class="tags"><span class="tag y">:cake</span><span class="tag p">:heart</span><span class="tag g">:cat</span><span class="tag b">:sun</span></div>
+  </div>
+  <div class="chat card" style="left:620px;top:110px" data-chat='{"title":"birthday plans","ava":"🎈","msgs":[["in","what do we get for sara?"],["out","something sweet 🍬"],["in","ooh good idea"]],"typed":"cupcakes for sure ","word":":cake","colon":true,"sel":2,"picker":{"left":120,"bottom":104}}'></div>
+  <img class="sticker" src="../assets/img/emoji-3d/doughnut.png" style="width:104px;left:1150px;top:40px;transform:rotate(-10deg)" alt="">
+</section>
+
+<!-- 4. The dictionary -->
+<section class="slide dots" id="shot4">
+  <div class="copy" style="width:470px">
+    <span class="label">every emoji there is</span>
+    <h2><span class="pink" data-n="emoji">1,914</span><br>emoji</h2>
+    <p class="lede"><b data-n="words">6,639</b> words to type them. Capitals, <b>_</b> and <b>-</b> don't matter: <b>ThumbsUp</b>, <b>thumbs_up</b> and <b>thumbsup</b> all give 👍.</p>
+    <p class="lede" style="font-size:22px">Pick a skin tone once and it sticks.</p>
+  </div>
+  <div class="cats" id="cats"></div>
+</section>
+
+<!-- 5. Features -->
+<section class="slide" id="shot5" style="background:var(--yellow)">
+  <div style="position:absolute;left:72px;top:70px;display:grid;gap:14px">
+    <span class="label">the small print, but fun</span>
+    <h2 style="font-size:70px">Made to stay out of your way</h2>
+  </div>
+  <div class="feats">
+    <div class="card feat"><span class="big e">🔒</span><h3>Private</h3><p>The word list lives inside the extension. Nothing you type leaves your browser.</p></div>
+    <div class="card feat"><span class="big e">💬</span><h3>Where you chat</h3><p>Works in WhatsApp Web and Instagram messages. Turn each one on or off.</p></div>
+    <div class="card feat" style="position:relative"><span class="big e">🌙</span><h3>Light &amp; dark</h3><p>The picker matches the page, or pick a theme yourself.</p>
+      <div class="picker dark" style="position:relative;margin-top:6px;min-width:0"  data-picker='{"word":"moon","max":4,"compact":true}'></div></div>
+    <div class="card feat"><span class="big e">⚡</span><h3>Just type</h3><p>No menus, no shortcuts to learn. Ignore the bubble and it goes away.</p></div>
+  </div>
+</section>
+
+<!-- Small promo tile 440x280 -->
+<section class="slide dots" id="small" style="background-color:var(--yellow);background-image:radial-gradient(rgba(17,17,17,.16) 1.4px, transparent 1.7px);background-size:20px 20px">
+  <img class="sticker" src="../assets/img/favicon.svg" style="width:112px;left:30px;top:28px;filter:drop-shadow(4px 4px 0 #111)" alt="">
+  <div style="position:absolute;left:160px;top:44px">
+    <div style="font:700 46px/1 Grandstander">Muff-<span style="color:var(--pink);-webkit-text-stroke:2px #111;paint-order:stroke fill">Mojo</span></div>
+    <div style="font:700 28px/1 Caveat;color:var(--red);margin-top:12px;transform:rotate(-2deg)">emojis by typing words</div>
+  </div>
+  <div style="position:absolute;left:14px;right:14px;bottom:30px;display:flex;gap:9px;justify-content:center">
+    <span class="tag" style="font-size:16px;padding:8px 11px;border-width:2.5px">fire → <span class="e">🔥</span></span>
+    <span class="tag p" style="font-size:16px;padding:8px 11px;border-width:2.5px">love → <span class="e">😍</span></span>
+    <span class="tag g" style="font-size:16px;padding:8px 11px;border-width:2.5px">party → <span class="e">🎉</span></span>
+  </div>
+</section>
+
+<!-- Marquee 1400x560 -->
+<section class="slide dots" id="marquee">
+  <div class="blob" style="width:520px;height:520px;left:790px;top:40px;background:var(--pink)"></div>
+  <div class="copy" style="left:84px;width:640px;gap:22px">
+    <div class="logo"><img src="../assets/img/favicon.svg" alt=""><span>Muff-<b>Mojo</b></span></div>
+    <h1 style="font-size:84px">Type a word.<br><span class="pink">Get the emoji.</span></h1>
+    <span class="label">on WhatsApp Web &amp; Instagram ✦</span>
+  </div>
+  <div class="chat card" style="left:740px;top:44px;width:560px" data-chat='{"title":"bestie","ava":"🧁","msgs":[["in","movie night?"],["out","only if there&apos;s 🍿"]],"typed":"I&apos;ll bring a ","word":"snack","sel":1,"short":true,"picker":{"left":140,"bottom":104}}'></div>
+  <img class="sticker" src="../assets/img/emoji-3d/cupcake.png" style="width:120px;left:1250px;top:24px;transform:rotate(12deg)" alt="">
+  <img class="sticker" src="../assets/img/emoji-3d/wavehand.png" style="width:96px;left:676px;top:400px;transform:rotate(-14deg)" alt="">
+</section>
+
+<script src="../assets/js/emoji-data.js"></script>
+<script src="../assets/js/emojis.js"></script>
+<script>
+const E = window.MuffMojoEmojis;
+const fmt = n => n.toLocaleString("en");
+document.querySelectorAll('[data-n="emoji"]').forEach(el => el.textContent = fmt(E.ALL.length));
+document.querySelectorAll('[data-n="words"]').forEach(el => el.textContent = fmt(new Set(E.ALL.flatMap(e => e.norm)).size));
+
+// Same candidate list the extension's content.js builds (exact matches, then prefix matches; ":" = search)
+function candidates(word, max = 8) {
+  if (word.startsWith(":")) return E.search(word.slice(1), max);
+  const exact = E.exact(word);
+  const prefix = word.length >= 3 ? E.search(word, max * 2, { prefixOnly: true }).filter(e => !exact.includes(e)) : [];
+  return [...exact, ...prefix].slice(0, max);
+}
+function pickerHTML(word, { sel = 0, max = 6, colon = false, compact = false } = {}) {
+  const items = candidates(word, max);
+  const keys = compact ? '<span><i>Tab</i>insert</span>' : (items.length > 1 ? '<span><i>↑↓</i></span>' : '') + '<span><i>Tab</i>insert</span>' + (colon ? '<span><i>↵</i></span>' : '') + '<span><i>Esc</i></span>';
+  return `<div class="row">${items.map((e, i) => `<span class="opt${i === sel ? " sel" : ""}">${e.emoji}</span>`).join("")}</div>
+    <div class="foot"><span class="name">:${items[sel].name}</span><span class="keys">${keys}</span></div>`;
+}
+document.querySelectorAll("[data-picker]").forEach(el => {
+  const o = JSON.parse(el.dataset.picker);
+  el.innerHTML = pickerHTML(o.word, o);
+});
+document.querySelectorAll("[data-chat]").forEach(el => {
+  const c = JSON.parse(el.dataset.chat);
+  el.innerHTML = `
+    <div class="chat__top"><span class="chat__ava e">${c.ava}</span><span class="chat__who"><strong>${c.title}</strong><small>online</small></span></div>
+    <div class="chat__body">${c.msgs.map(([d, t]) => `<div class="bubble ${d}">${t.replace(/(\p{Extended_Pictographic}️?)/gu, '<span class="e">$1</span>')}</div>`).join("")}</div>
+    <div class="chat__compose"><div class="field">${c.typed}<mark>${c.word}</mark><span class="caret"></span>${c.rest ? `<span style="color:#aaa">${c.rest}</span>` : ""}</div><span class="send">➤</span></div>
+    <div class="picker" style="left:${c.picker.left}px;bottom:${c.picker.bottom}px">${pickerHTML(c.word, { sel: c.sel || 0, colon: c.colon })}</div>`;
+});
+
+// shot 4: category list from the real data
+const popular = E.ALL.filter(e => e.curated);
+const cats = [{ label: "Popular", icon: "🔥", n: popular.length }, ...E.CATEGORIES.map(c => ({ label: c.label, icon: c.icon, n: c.entries.length }))];
+document.getElementById("cats").innerHTML = cats.map((c, i) =>
+  `<div class="cat"><span class="e bg-${i % 6}">${c.icon}</span><span><strong>${c.label}</strong><small>${fmt(c.n)} emoji</small></span></div>`).join("");
+
+document.fonts.ready.then(() => document.body.dataset.ready = "1");
+</script>
+</body>
+</html>
